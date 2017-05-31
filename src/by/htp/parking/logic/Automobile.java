@@ -21,10 +21,8 @@ public class Automobile extends Thread {
 			place.using();
 		}
 		catch(Exception e){
-			System.out.println("Client #" + this.getId() + " lost ->"
-					+ e.getMessage());
+			System.out.println("Authomobile #" + this.getId() + " left ->"+ "Timeout exceeded");
 		}
-		
 		finally{
 			if (place != null) {
 				reading = false;

@@ -10,17 +10,13 @@ public class Main {
 
 	public static void main(String[] args){
 		
-		LinkedList<ParkingPlace> list = new LinkedList<ParkingPlace>() {
-			{
-				this.add(new ParkingPlace(1));
-				this.add(new ParkingPlace(2));
-				this.add(new ParkingPlace(3));
-				this.add(new ParkingPlace(4));
-				this.add(new ParkingPlace(5));
-			}
-
-		
-		};
+		LinkedList<ParkingPlace> list = new LinkedList<ParkingPlace>();
+			
+		list.add(new ParkingPlace(1));
+		list.add(new ParkingPlace(2));
+		list.add(new ParkingPlace(3));
+		list.add(new ParkingPlace(4));
+		list.add(new ParkingPlace(5));
 		
 		ParkPlacePool<ParkingPlace> pool = new ParkPlacePool<>(list);
 				for (int i = 0; i < 20; i++) {
