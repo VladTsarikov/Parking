@@ -12,20 +12,26 @@ public class Automobile extends Thread {
 	}
 	
 	public void run() {
-		ParkingPlace place = pool.getResource(500); 
-			reading = true;
-			System.out.println("Authomobile place ¹ " + this.getId()
-				
-+ " took channel #" + place.getParkPlaceId());
+		ParkingPlace place = null;
+		try {
+		place=pool.getResource(500); 
+			
+		reading = true;
+			System.out.println("Authomobile ¹ " + this.getId() + " took place ¹ " + place.getParkPlaceId());
 			place.using();
+		}
+		catch(Exception e){
+			System.out.println("Client #" + this.getId() + " lost ->"
+					+ e.getMessage());
+		}
 		
+		finally{
 			if (place != null) {
 				reading = false;
-			System.out.println("Authomobile place ¹ " + this.getId() + " : "
-				
-+ place.getParkPlaceId() + " place released");
+			System.out.println("Authomobile ¹ " + this.getId() + " : " + place.getParkPlaceId() + " place released");
 				pool.returnResource(place);
 			}
+		}
 		}
 	
 	
