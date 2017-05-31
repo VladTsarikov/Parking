@@ -21,12 +21,12 @@ public class Automobile extends Thread {
 			place.using();
 		}
 		catch(Exception e){
-			System.out.println("Authomobile #" + this.getId() + " left ->"+ "Timeout exceeded");
+			System.out.println("Authomobile ¹ " + this.getId() + " went to another parking ->"+ "Timeout exceeded");
 		}
 		finally{
 			if (place != null) {
 				reading = false;
-			System.out.println("Authomobile ¹ " + this.getId() + " : " + place.getParkPlaceId() + " place released");
+			System.out.println("Authomobile ¹ " + this.getId() + "left" + " : " + place.getParkPlaceId() + " place free");
 				pool.returnResource(place);
 			}
 		}
